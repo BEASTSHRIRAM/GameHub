@@ -1,0 +1,32 @@
+{
+  "name": "gamehub",
+  "version": "1.0.0",
+  "description": "A modern multiplayer gaming platform with friend chat functionality",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'No build step required for static site'",
+    "start": "vercel dev"
+  },
+  "keywords": [
+    "games",
+    "multiplayer",
+    "chat",
+    "tic-tac-toe",
+    "chess",
+    "tetris",
+    "checkers",
+    "friends",
+    "social"
+  ],
+  "author": "BEASTSHRIRAM",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BEASTSHRIRAM/GameHub.git"
+  },
+  "homepage": "https://github.com/BEASTSHRIRAM/GameHub#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
