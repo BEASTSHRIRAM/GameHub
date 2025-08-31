@@ -1,5 +1,7 @@
 {
     "name": "gamehub-platform",
+    "buildCommand": "echo 'No build step required'",
+    "outputDirectory": ".",
     "rewrites": [
         {
             "source": "/(.*)",
