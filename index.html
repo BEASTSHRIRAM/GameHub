@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameHub - Play Together</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">🎮 GameHub</h1>
+                <div class="user-info">
+                    <input type="text" id="username" placeholder="Enter your name" class="username-input">
+                    <button class="user-menu-btn" id="userMenuBtn">👤</button>
+                    <div class="online-count">
+                        <span class="status-dot"></span>
+                        <span id="onlineCount">1 online</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-container">
+            <!-- Game Selection -->
+            <div class="game-selection" id="gameSelection">
+                <h2>Choose a Game</h2>
+                <div class="games-grid">
+                    <div class="game-card" data-game="tictactoe">
+                        <div class="game-icon">⭕</div>
+                        <h3>Tic Tac Toe</h3>
+                        <p>Classic 3x3 strategy game</p>
+                    </div>
+                    <div class="game-card" data-game="chess">
+                        <div class="game-icon">♛</div>
+                        <h3>Chess</h3>
+                        <p>The ultimate strategy game</p>
+                    </div>
+                    <div class="game-card" data-game="blocks">
+                        <div class="game-icon">🧩</div>
+                        <h3>Blocks</h3>
+                        <p>Tetris-style puzzle game</p>
+                    </div>
+                    <div class="game-card" data-game="checkers">
+                        <div class="game-icon">🔴</div>
+                        <h3>Checkers</h3>
+                        <p>Classic board game</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Area -->
+            <div class="game-area" id="gameArea" style="display: none;">
+                <div class="game-header">
+                    <button class="back-btn" id="backBtn">← Back to Games</button>
+                    <h2 id="currentGameTitle">Game</h2>
+                    <div class="game-controls">
+                        <button class="btn btn-secondary" id="newGameBtn">New Game</button>
+                    </div>
+                </div>
+                <div class="game-content" id="gameContent">
+                    <!-- Game content will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- User Menu Modal -->
+        <div class="modal-overlay" id="userMenuModal" style="display: none;">
+            <div class="modal-content user-menu-modal">
+                <div class="modal-header">
+                    <h2>👤 Account & Friends</h2>
+                    <button class="close-btn" id="closeUserMenu">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="user-profile">
+                        <div class="profile-info">
+                            <div class="avatar">👤</div>
+                            <div class="profile-details">
+                                <h3 id="profileUsername">Anonymous</h3>
+                                <p id="profileId">ID: #000000</p>
+                            </div>
+                        </div>
+                        <div class="invite-section">
+                            <h4>🔗 Invite Friends</h4>
+                            <div class="invite-link-container">
+                                <input type="text" id="inviteLink" readonly class="invite-link">
+                                <button id="copyInviteBtn" class="copy-btn">Copy</button>
+                            </div>
+                            <p class="invite-help">Share this link with friends to invite them to play!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="friends-section">
+                        <div class="friends-header">
+                            <h4>👥 Friends</h4>
+                            <button id="addFriendBtn" class="btn btn-primary">Add Friend</button>
+                        </div>
+                        <div class="friends-list" id="friendsList">
+                            <div class="no-friends">No friends added yet. Add some friends to play together!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Friend Modal -->
+        <div class="modal-overlay" id="addFriendModal" style="display: none;">
+            <div class="modal-content add-friend-modal">
+                <div class="modal-header">
+                    <h2>➕ Add Friend</h2>
+                    <button class="close-btn" id="closeAddFriend">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="add-friend-options">
+                        <div class="add-option">
+                            <h4>By Friend ID</h4>
+                            <div class="input-group">
+                                <input type="text" id="friendIdInput" placeholder="Enter friend ID (e.g., #123456)">
+                                <button id="addByIdBtn" class="btn btn-secondary">Add</button>
+                            </div>
+                        </div>
+                        <div class="add-option">
+                            <h4>By Invite Link</h4>
+                            <div class="input-group">
+                                <input type="text" id="inviteLinkInput" placeholder="Paste invite link here">
+                                <button id="addByLinkBtn" class="btn btn-secondary">Join</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Panel -->
+        <div class="chat-panel" id="chatPanel">
+            <div class="chat-header">
+                <div class="chat-title">
+                    <h3 id="chatTitle">💬 General Chat</h3>
+                    <div class="chat-tabs" id="chatTabs">
+                        <button class="chat-tab active" data-chat="general">General</button>
+                    </div>
+                </div>
+                <button class="chat-toggle" id="chatToggle">−</button>
+            </div>
+            <div class="chat-content">
+                <div class="chat-messages" id="chatMessages">
+                    <div class="system-message">Welcome to GameHub! Start chatting with friends.</div>
+                </div>
+                <div class="chat-input-container">
+                    <input type="text" id="chatInput" placeholder="Type a message..." maxlength="200">
+                    <button id="sendBtn">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/games/tictactoe.js"></script>
+    <script src="js/games/chess.js"></script>
+    <script src="js/games/blocks.js"></script>
+    <script src="js/games/checkers.js"></script>
+</body>
+</html>
